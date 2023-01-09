@@ -70,9 +70,9 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: TileWidget(
-          tile: game.tiles[0],
-        ),
+        child: Wrap(
+            children:
+                game.tiles.map((tile) => TileWidget(tile: tile)).toList()),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
