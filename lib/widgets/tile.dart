@@ -19,7 +19,7 @@ class _TileWidgetState extends State<TileWidget> {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
-        valueListenable: widget.tile.count,
+        valueListenable: widget.tile.countListner,
         builder: (context, value, _) => Card(
               child: Column(
                 mainAxisSize: MainAxisSize.min,

@@ -76,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          game.tiles[0].count.value--;
+          game.tiles[0].countListner.value--;
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
