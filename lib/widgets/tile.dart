@@ -21,11 +21,14 @@ class _TileWidgetState extends State<TileWidget> {
   _TileWidgetState() {}
 
   @override
-  Widget build(BuildContext context) {
-    this.id = widget.id;
-    this.total_count = widget.total_count;
-    this.count = widget.total_count;
+  void initState() {
+    id = widget.id;
+    total_count = widget.total_count;
+    count = widget.total_count;
+  }
 
+  @override
+  Widget build(BuildContext context) {
     return Card(
       child: Column(
         mainAxisSize: MainAxisSize.min,
