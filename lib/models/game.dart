@@ -3,7 +3,7 @@ import 'package:carcassonne_helper/models/tile.dart';
 class Game {
   final List<Tile> tiles;
 
-  static final String baseSetIds = 'ABCDEFGHIJKLMNOPQRSTUVWX';
+  static const String baseSetIds = 'ABCDEFGHIJKLMNOPQRSTUVWX';
 
   static const List<int> baseSetCounts = [
     2,
