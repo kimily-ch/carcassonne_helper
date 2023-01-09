@@ -1,3 +1,4 @@
+import 'package:carcassonne_helper/models/tile.dart';
 import 'package:carcassonne_helper/widgets/tile.dart';
 import 'package:flutter/material.dart';
 
@@ -49,18 +50,8 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+  final Tile tile = new Tile(
+      id: 'base-c1-c1-c1-c1-c1-c1-z1-r1-z2-z2-r1-z1-C1n', totalCount: 10);
 
   @override
   Widget build(BuildContext context) {
@@ -80,11 +71,13 @@ class _MyHomePageState extends State<MyHomePage> {
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: TileWidget(
-            id: "base-c1-c1-c1-c1-c1-c1-z1-r1-z2-z2-r1-z1-C1n",
-            total_count: 10),
+          tile: tile,
+        ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => {},
+        onPressed: () {
+          tile.count.value--;
+        },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
