@@ -50,8 +50,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final Tile tile = new Tile(
-      id: 'base-c1-c1-c1-c1-c1-c1-z1-r1-z2-z2-r1-z1-C1n', totalCount: 10);
+  final Tile tile = Tile(id: 'X', totalCount: 10);
 
   @override
   Widget build(BuildContext context) {

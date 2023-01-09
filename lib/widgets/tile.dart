@@ -12,6 +12,10 @@ class TileWidget extends StatefulWidget {
 }
 
 class _TileWidgetState extends State<TileWidget> {
+  // TODO: place to a reasonable place.
+  static String _getImagePath(String id) =>
+      'assets/tiles/20AE_Base_Game_C2_Tile_${id}.png';
+
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
@@ -21,7 +25,7 @@ class _TileWidgetState extends State<TileWidget> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Image.asset(
-                    'assets/tiles/${widget.tile.id}.png',
+                    _getImagePath(widget.tile.id),
                     width: 100,
                     height: 100,
                   ),
