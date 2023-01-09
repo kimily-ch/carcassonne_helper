@@ -1,6 +1,7 @@
-import 'package:carcassonne_helper/models/tile.dart';
 import 'package:carcassonne_helper/widgets/tile.dart';
 import 'package:flutter/material.dart';
+
+import 'models/game.dart';
 
 void main() {
   runApp(const MyApp());
@@ -50,7 +51,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final Tile tile = Tile(id: 'X', totalCount: 10);
+  final Game game = Game.baseGame();
 
   @override
   Widget build(BuildContext context) {
@@ -70,12 +71,12 @@ class _MyHomePageState extends State<MyHomePage> {
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: TileWidget(
-          tile: tile,
+          tile: game.tiles[0],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          tile.count.value--;
+          game.tiles[0].count.value--;
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
