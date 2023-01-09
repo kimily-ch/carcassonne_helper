@@ -22,6 +22,7 @@ class _TileWidgetState extends State<TileWidget> {
 
   @override
   void initState() {
+    super.initState();
     id = widget.id;
     total_count = widget.total_count;
     count = widget.total_count;
