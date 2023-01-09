@@ -24,11 +24,30 @@ class _TileWidgetState extends State<TileWidget> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Image.asset(
-                    _getImagePath(widget.tile.id),
-                    width: 100,
-                    height: 100,
-                  ),
+                  Stack(children: [
+                    value == 0
+                        ? Image.asset(_getImagePath(widget.tile.id),
+                            width: 100,
+                            height: 100,
+                            color: Color.fromARGB(0x80, 0x80, 0x80, 0x80),
+                            colorBlendMode: BlendMode.dstATop)
+                        : Image.asset(_getImagePath(widget.tile.id),
+                            width: 100, height: 100),
+                    Positioned.fill(
+                      child: Material(
+                        color: Colors.transparent,
+                        child: InkWell(
+                          onTap: value == 0
+                              ? null
+                              : () {
+                                  if (widget.tile.countListner.value > 0) {
+                                    widget.tile.countListner.value--;
+                                  }
+                                },
+                        ),
+                      ),
+                    ),
+                  ]),
                   Text('${value} / ${widget.tile.totalCount}')
                 ],
               ),
