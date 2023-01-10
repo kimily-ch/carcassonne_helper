@@ -74,11 +74,20 @@ class _MyHomePageState extends State<MyHomePage> {
           children: [
             ValueListenableBuilder(
               valueListenable: game.totalTilesLeftListener,
-              builder: (context, value, _) => Text(value.toString()),
+              builder: (context, value, _) => Text(
+                value.toString(),
+                textScaleFactor: 4,
+              ),
             ),
-            Wrap(
-                children:
-                    game.tiles.map((tile) => TileWidget(tile: tile)).toList()),
+            Flexible(
+              child: SingleChildScrollView(
+                scrollDirection: Axis.vertical,
+                child: Wrap(
+                    children: game.tiles
+                        .map((tile) => TileWidget(tile: tile))
+                        .toList()),
+              ),
+            ),
           ],
         ),
       ),
