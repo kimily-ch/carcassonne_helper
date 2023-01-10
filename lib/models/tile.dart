@@ -5,8 +5,8 @@ class Tile {
 
   final int totalCount;
 
-  final ValueNotifier<int> countListner;
+  final ValueNotifier<int> countListener;
 
   Tile({required this.id, required this.totalCount})
-      : countListner = ValueNotifier(totalCount) {}
+      : countListener = ValueNotifier(totalCount) {}
 }

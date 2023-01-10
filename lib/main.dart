@@ -70,13 +70,21 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
-        child: Wrap(
-            children:
-                game.tiles.map((tile) => TileWidget(tile: tile)).toList()),
+        child: Column(
+          children: [
+            ValueListenableBuilder(
+              valueListenable: game.totalTilesLeftListener,
+              builder: (context, value, _) => Text(value.toString()),
+            ),
+            Wrap(
+                children:
+                    game.tiles.map((tile) => TileWidget(tile: tile)).toList()),
+          ],
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          game.tiles[0].countListner.value--;
+          game.tiles[0].countListener.value--;
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),

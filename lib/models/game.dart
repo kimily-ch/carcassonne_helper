@@ -1,7 +1,10 @@
 import 'package:carcassonne_helper/models/tile.dart';
+import 'package:collection/collection.dart';
+import 'package:flutter/cupertino.dart';
 
 class Game {
-  final List<Tile> tiles;
+  final List<Tile> tiles = [];
+  final ValueNotifier<int> totalTilesLeftListener = ValueNotifier(0);
 
   static const String baseSetIds = 'ABCDEFGHIJKLMNOPQRSTUVWX';
 
@@ -32,9 +35,19 @@ class Game {
     1
   ];
 
-  Game.baseGame() : tiles = [] {
+  Game.baseGame() {
     for (var i = 0; i < baseSetIds.length; i++) {
       tiles.add(Tile(id: baseSetIds[i], totalCount: baseSetCounts[i]));
     }
+
+    for (var tile in tiles) {
+      tile.countListener.addListener(updateLeftCount);
+    }
+
+    updateLeftCount();
+  }
+
+  void updateLeftCount() {
+    totalTilesLeftListener.value = tiles.map((t) => t.countListener.value).sum;
   }
 }

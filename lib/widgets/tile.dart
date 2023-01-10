@@ -19,7 +19,7 @@ class _TileWidgetState extends State<TileWidget> {
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder(
-        valueListenable: widget.tile.countListner,
+        valueListenable: widget.tile.countListener,
         builder: (context, value, _) => Card(
               child: Column(
                 mainAxisSize: MainAxisSize.min,
@@ -40,8 +40,8 @@ class _TileWidgetState extends State<TileWidget> {
                           onTap: value == 0
                               ? null
                               : () {
-                                  if (widget.tile.countListner.value > 0) {
-                                    widget.tile.countListner.value--;
+                                  if (widget.tile.countListener.value > 0) {
+                                    widget.tile.countListener.value--;
                                   }
                                 },
                         ),
